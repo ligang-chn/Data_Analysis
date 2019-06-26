@@ -22,14 +22,6 @@
 
 
 
-#### 2 向仓库中添加文件流程
-
-------------------
-
-​		![img](file:///C:/Users/ligang/AppData/Local/Packages/oice_16_974fa576_32c1d314_1013/AC/Temp/msohtmlclip1/01/clip_image002.jpg)
-
-
-
 #### 3 Git初始化
 
 ------------
