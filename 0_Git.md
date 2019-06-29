@@ -18,11 +18,13 @@
 
 ​		**事物卡片（Issue）**
 
-​		发现代码BUG，但是目前没有成型代码，需要讨论时用；
+​		发现代码BUG，但是目前没有成型代码，需要讨论时用；如下图：
 
+​		![1561625844361](assets/1561625844361.png)
 
+​		
 
-#### 3 Git初始化
+#### 2 Git初始化
 
 ------------
 
@@ -30,7 +32,7 @@
 
 ​		安装完成，我们使用Git Bash；此为命令行操作。
 
-##### 3.1 配置Git
+##### 2.1 配置Git
 
 ​		1、输入
 
@@ -75,18 +77,23 @@ git config --global user.name 'ligang-chn'
 2.设置用户名邮箱
 git config --global user.email '123456789@qq.com'
 
+使用
+git config uesr.name
+git config user.email
+查看配置情况
+
 Note:该设置在GitHub仓库主页显示谁提交了该文件。
 ```
 
-##### 3.2  初始化一个新的Git仓库
+##### 2.2  初始化一个新的Git仓库
 
-​		1、在本地创建项目文件夹，如Data_Analysis；
+​		**1、在本地创建项目文件夹，如Data_Analysis；**
 
 ​		![1561018299611](assets/1561018299611.png)
 
 ​		也可以使用命令mkdir Data_Analysis。
 
-​		2、在文件内初始化git（创建git仓库）
+​		**2、在文件内初始化git（创建git仓库）**
 
 ```
 git init
@@ -96,10 +103,49 @@ git init
 
 ​		![1561018592279](assets/1561018592279.png)
 
-​		3、向仓库添加文件
+​		**3、向仓库添加文件**
+
+​		文件提交流程图：
+
+​		![Repository](assets/2-1-1.png)
+
+​		当有文件存在修改时，如下图：在文件中添加“a=1”,使用git status查看当前状态：
+
+​		![1561626587504](assets/1561626587504.png)
+
+​		此时为`modified`状态；
+
+​		执行`add`操作，就到了`staged`状态；
+
+​		![1561626760007](assets/1561626760007.png)
+
+​		执行`commit`操作，就再次回到`unmodified`状态；
+
+​		
+
+​		查看更改的细节`diff`：
+
+​		![1561627029034](assets/1561627029034.png)
+
+​		**注意**：`diff`只能查看unstaged的状态与前一个commit的状态对比；
+
+​		一旦执行了`add`操作，将文件变成staged状态，此时就不会有更改显示了。
+
+​		![1561627372329](assets/1561627372329.png)
+
+​		此时可以通过下面这条命令，查看更改的地方：
+
+​		`git diff —cached`
+
+​		![1561627457569](assets/1561627457569.png)
+
+​		
+
+​		**命令总结**：
 
 ```
-git remote add origin git@github.com:ligang-chn/Data_Analysis.git#在项目目录上进入git bash
+git remote add origin git@github.com:ligang-chn/Data_Analysis.git
+#在项目目录上进入git bash
 
 git pull git@github.com:ligang-chn/Data_Analysis.git#在本地同步仓库的内容
 
@@ -125,7 +171,100 @@ git push git@github.com:ligang-chn/Data_Analysis.git #上传
 
 
 
-#### 4 Github Pages搭建网站
+#### 3 回到从前
+
+------------
+
+​		**修改已commit的版本**	
+
+​		如果已经提交了 `commit` 却发现在这个 `commit` 中忘了附上另一个文件. 
+
+​		使用如下命令：
+
+```
+git commit --amend --no-edit   # "--no-edit": 不编辑, 直接合并到上一个 commit
+git log --oneline    # "--oneline": 每个 commit 内容显示在一行
+```
+
+​		
+
+​		**reset**
+
+​		**commit之前，add之后**：
+
+```
+git reset README.md   #从staged状态回到unstaged状态
+```
+
+​		commit之后：
+
+```
+git reset --hard HEAD  #回到当前的指针
+git reset --hard HEAD^ #回到前一个版本
+git reset --hard HEAD^^ #回到上上个版本  （等价于HEAD~2)
+
+#也可以使用id号码代替HEAD
+
+#回到未来
+使用git reflog查看id号
+```
+
+​		![ (assets/2-2-1.png)](https://morvanzhou.github.io/static/results/git/2-2-1.png)
+
+​		每个 `commit` 都有自己的 `id` 数字号, `HEAD` 是一个指针, 指引当前的状态是在哪个 `commit`. 最近的一次 `commit` 在最右边, 我们如果要回到过去, 就是让 `HEAD` 回到过去并 `reset` 此时的 `HEAD` 到过去的位置.
+
+​		![1561629513981](assets/1561629513981.png)
+
+​		![1561629567137](assets/1561629567137.png)
+
+
+
+​		**checkout针对单个文件**
+
+​		命令：
+
+```
+#有时候只想修改单个文件，就需要用到checkout命令 
+git checkout 6a2408e -- README.md  #中间是id号
+```
+
+​		![1561629923642](assets/1561629923642.png)
+
+
+
+#### 4 分支
+
+------------
+
+```
+git log --oneline --graph
+```
+
+​		建立分支
+
+```
+git branch 分支名
+git branch  #查看所有的分支名
+git checkout dev  #切换分支
+git branch -d dev  #注意不能在需要删除的分支下使用该命令
+
+#使用checkout建立分支,同时移动到dev分支上去
+git checkout -b dev
+
+#将分支的内容推到master上
+git merge --no-ff -m "keep merge info" dev
+
+#推送分支到github上
+git push -u origin dev
+```
+
+​		![1561631316921](assets/1561631316921.png)
+
+
+
+
+
+#### 5 Github Pages搭建网站
 
 ------
 
