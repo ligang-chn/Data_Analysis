@@ -550,6 +550,126 @@ print(b)        # array([11, 22, 33,  3])
 
 ------
 
+##### 1.11 random模块
+
+​		**python `random()`函数**
+
+​		`random()`方法返回随机生成的一个实数，它在[0,1)范围内。
+
+​		==**注意**==：`random()`是不能直接访问的，需要到如random模块，通过random静态对象调用该方法。即，`random.random()`。
+
+​		上面的这个随机生成函数是没有参数的。
+
+
+
+​		`random()`函数中常见的函数如下：
+
+​		`random.seed(a=None,vesion=2) `：初始化随机数生成器；
+
+​		`random.randrange(stop)`/`random.randrange(start,stop[,step])`：返回一个随机选择的元素；
+
+​		`random.randint(a,b)`：返回随机整数N，左右闭区间；
+
+​		`random.choice(seq)`：从非空序列seq返回一个随机元素；如下：![1565076759028](assets/1565076759028.png)
+
+​		`random.choices(population,weights=None,*,cum_weights=None,k=1)`：从population中选择替换，返回大小为k的元素列表。如果指定了weight序列，则根据相对权重进行选择。如果给出cum_weights序列，则根据累积权重进行选择。如果提供了权重序列，则它必须与population序列长度相同。
+
+​		`random.shuffle(x[,random])`：将序列x随机打乱位置；
+
+​		`random.sample(population,k)`：返回从总体序列或集合中选择的唯一元素的k长度列表。用于无重复的随机抽样。
+
+​		`random.random()`：返回0.0到1.0范围内的一个随机浮点数；
+
+​		`random.uniform(a,b)`：返回一个随机浮点数；
+
+​		`random.normalvariate(mu,sigma)`：正态分布，mu-平均值，sigma-标准差；
+
+​		
+
+
+
+​		**numpy.random模块**：
+
+​		numpy.random模块对Python内置的random进行了补充，增加了一些用于高效生成多种概率分布的样本值的函数。
+
+
+
+​		`np.random.normal(size=(4,4))`：生成标准正态分布的4x4样本数组；
+
+​		`np.random.seed(1234)`：确定随机数生成种子；
+
+
+
+​		`np.random.RandomState`：创建一个与其他隔离的随机数生成器；
+
+​		`permutation`：返回一个序列的随机排列或返回一个随机排列的范围；
+
+​		`shuffle`：对一个序列就地随机排列；
+
+​		`rand`：产生均匀分布的样本值；
+
+​		`randint`：从给定的上下限范围内随机选取整数；
+
+​		`randn`：产生正态分布（平均值为0，标准差为1）的样本值，类似于Matlab接口；
+
+​		`binomial`：产生二项分布的样本值；
+
+​		`normal`：产生正态分布的样本值；
+
+​		`beta`：产生Beta分布的样本值；
+
+​		`uniform`：产生在[0，1）中均匀分布的样本值。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------
+
 
 
 
@@ -765,7 +885,7 @@ print(df[df.A>8])
 
 		1. **根据位置设置**`loc`和`iloc`，利用索引或标签确定需要修改值的位置。
   		2. **根据条件设置**，例如，对于`A`大于4的位置. 更改`B`在相应位置上的数为0。
-        		3. **按行或列设置**，对整列做批处理。
+                		3. **按行或列设置**，对整列做批处理。
             		4. **添加数据**
 
 ----

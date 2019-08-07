@@ -376,11 +376,25 @@ Edit mode
 
 
 
+####  5 魔法命令
 
+------
 
+##### 5.1  %run
 
+```python
+%run test/test.py
+```
 
+​		
 
+##### 5.2   %timeit
+
+​		%%timeit
+
+​		%time
+
+​		%%time
 
 
 
