@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdef72cf-d7ac-416f-81d6-e0eeea949f96" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ML.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KNN.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LinearRegression.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SimpleLinearRegression.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/metrics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model_selection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/preprocessing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../01_Numpy&amp;Pandas.md" beforeDir="false" afterPath="$PROJECT_DIR$/../01_Numpy&amp;Pandas.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../09_matplotlib.md" beforeDir="false" afterPath="$PROJECT_DIR$/../09_matplotlib.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../0_Git.md" beforeDir="false" afterPath="$PROJECT_DIR$/../0_Git.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../04_Numpy.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05_pandas.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../06_数据加载、存储与文件格式.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinearRegression.md" beforeDir="false" afterPath="$PROJECT_DIR$/../LinearRegression.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinearRegression.py" beforeDir="false" afterPath="$PROJECT_DIR$/LinearRegression.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SimpleLinearRegression.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+            <state relative-caret-position="1254">
+              <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -58,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LinearRegression.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+            <state relative-caret-position="726">
+              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
             </state>
           </provider>
         </entry>
@@ -113,13 +106,14 @@
         <option value="$PROJECT_DIR$/KNN.py" />
         <option value="$PROJECT_DIR$/preprocessing.py" />
         <option value="$PROJECT_DIR$/SimpleLinearRegression.py" />
+        <option value="$PROJECT_DIR$/1.py" />
         <option value="$PROJECT_DIR$/LinearRegression.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="868" />
-    <option name="y" value="26" />
+    <option name="x" value="834" />
+    <option name="y" value="39" />
     <option name="width" value="1080" />
     <option name="height" value="1040" />
   </component>
@@ -218,10 +212,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="695" y="21" width="864" height="832" extended-state="0" />
+    <frame x="834" y="39" width="1080" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24952015" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -248,6 +242,7 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/1.py" />
     <entry file="file://$PROJECT_DIR$/KNN.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1254">
@@ -262,6 +257,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleLinearRegression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -282,17 +284,10 @@
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleLinearRegression.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LinearRegression.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        <state relative-caret-position="726">
+          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
         </state>
       </provider>
     </entry>

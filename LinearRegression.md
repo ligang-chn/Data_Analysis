@@ -228,9 +228,9 @@ class LinearRegression:
 
 		1. 评价线性回归算法：R Squared
   		2. 典型的参数学习，对比KNN：非参数学习
-  		3. 只能解决回归问题，对比KNN：既可以解决分类问题，又可以解决线性问题
-  		4. 对数据有假设：线性，对比KNN对数据没有假设
-  		5. 优点：对数据具有强解释性
+        		3. 只能解决回归问题，对比KNN：既可以解决分类问题，又可以解决线性问题
+            		4. 对数据有假设：线性，对比KNN对数据没有假设
+                		5. 优点：对数据具有强解释性
 
 ​		
 
@@ -238,14 +238,35 @@ class LinearRegression:
 
 #### 5 梯度下降法
 
-​		梯度下降法，是一种基于搜索的最优化方法；（不是一个机器学习算法）
+​		梯度就是分别对每个变量进行微分，然后用逗号分隔开，梯度是用<>包括起来的，说明梯度其实是一个向量。
+$$
+J(\Theta)=0.55-(5\theta_1+2\theta_2+12\theta_3)
+$$
 
-​		作用：最小化一个损失函数；
+$$
+\nabla J(\Theta)=<\frac {\partial J } {\partial \theta_1 },\frac {\partial J } {\partial \theta_2 },\frac {\partial J } {\partial \theta_3 }>
+=<-5,-2,12>
+$$
 
-​		梯度上升法：最大化一个效用函数。
+​		**梯度的意义**：
 
-​		![1565182396360](assets/1565182396360.png)
+		- 在单变量的函数中，梯度其实就是函数的微分，代表函数在某个给定点的切线的斜率
+		- 在多变量函数中，梯度就是一个向量，向量有方向，梯度的方向就指出了函数在给定点的上升最快的方向
 
+
+
+​		**梯度下降法**，是一种基于搜索的最优化方法；（不是一个机器学习算法）
+
+​		**作用**：最小化一个损失函数；
+
+​		**梯度上升法**：最大化一个效用函数。
+
+
+
+​		导数可以代表方向，对应J增大的方向。
+$$
+-\eta \frac{dJ}{d\theta}
+$$
 ​		![1565182410962](assets/1565182410962.png)
 
 ​		并不是所有函数都有唯一的极值点；
@@ -257,18 +278,180 @@ class LinearRegression:
   - 梯度下降法的初始点也是一个超参数。
 
     
+    
+    **模拟实现梯度下降法**：
+
+```python
+def gradient_descent(initial_theta,eta,epsilon=1e-8):
+    theta=initial_theta
+    theta_history.append(initial_theta)
+    
+    while True:
+        gradient=dJ(theta)
+        last_theta=theta
+        theta=theta-eta*gradient
+        theta_history.append(theta)
+        
+        if(abs(J(theta)-J(last_theta))<epsilon):
+            break
+            
+def plot_theta_history():
+    plt.plot(plot_x,J(plot_x))
+    plt.plot(np.array(theta_history),J(np.array(theta_history)),'ro-')
+    
+    
+eta=0.9
+theta_history=[]
+gradient_descent(0.,eta)
+plot_theta_history()    
+    
+```
+
+​		![1565244493740](assets/1565244493740.png)
 
 
 
+----
+
+#### 6 线性回归中使用梯度下降法
+
+​		![1565244848634](assets/1565244848634.png)
+
+​		![1565244960379](assets/1565244960379.png)
+
+​		**实现梯度下降法**：
+
+```python
+def fit_gd(self,X_train,y_train,eta=0.01,n_iters=1e4):
+    """根据训练数据集X_train,y_train,使用梯度下降法训练Linear Regression模型"""
+    assert X_train.shape[0]==y_train.shape[0],\
+        "the size of X_train must be euqal to the size of y_train"
+
+    def J(theta,X_b,y):
+        try:
+            return np.sum((y - X_b.dot(theta)) ** 2) / len(X_b)
+        except:
+            return float('inf')
+
+    def dJ(theta, X_b, y):
+        res = np.empty(len(theta))
+        res[0] = np.sum(X_b.dot(theta) - y)
+
+        for i in range(1, len(theta)):
+            res[i] = (X_b.dot(theta) - y).dot(X_b[:, i])
+        return res * 2 / len(X_b)
+
+    def gradient_descent(X_b, y, initial_theta, eta, n_iters=1e4, epsilon=1e-8):
+        theta = initial_theta
+        i_iter = 0
+
+        while i_iter < n_iters:
+            gradient = dJ(theta, X_b, y)
+            last_theta = theta
+            theta = theta - eta * gradient
+
+            if (abs(J(theta, X_b, y) - J(last_theta, X_b, y)) < epsilon):
+                break
+
+            i_iter += 1
+
+        return theta
+
+    X_b = np.hstack([np.ones((len(X_train), 1)), X_train])
+    initial_theta = np.zeros(X_b.shape[1])  # theta向量的行数=X_b向量的列数
+    self._theta=gradient_descent(X_b,y_train,initial_theta,eta,n_iters)
+
+    self.interception_=self._theta[0]
+    self.coef_=self._theta[1:]
+
+    return  self
+```
 
 
 
+----
 
+#### 7 线性回归中梯度下降的向量化
 
+​		![1565251075168](assets/1565251075168.png)
 
+​		![1565251377618](assets/1565251377618.png)
 
+​		**梯度下降法与数据归一化**
 
+​		![1565253675459](assets/1565253675459.png)
 
+​		
+
+----
+
+#### 8 随机梯度下降法
+
+​		**批量梯度下降法（Batch Gradient Descent）**
+
+​		![1565255368568](assets/1565255368568.png)
+
+​			这是之前的向量化公式，我们在求解梯度时，每一项都要对**所有的样本**进行计算。
+
+​		
+
+​		![1565255584277](assets/1565255584277.png)
+
+​		![1565255978821](assets/1565255978821.png)
+
+​		随机梯度下降法的学习率不能是一个固定值，需要是递减的。【**模拟退火的思想**】
+
+​	![1565256036879](assets/1565256036879.png)
+
+​			![1565261045419](LinearRegression.assets/1565261045419.png)
+
+​		**SGD算法实现**：
+
+```python
+def fit_sgd(self,X_train,y_train,n_iters=5,t0=5,t1=50):
+    """根据训练数据集X_train,y_train,使用随机梯度下降法训练Linear Regression模型"""
+    assert X_train.shape[0]==y_train.shape[0],\
+        "the size of X_train must be euqal to the size of y_train"
+    assert n_iters>=1
+
+    def dJ_sgd(theta, X_b_i, y_i):
+        return X_b_i*(X_b_i.dot(theta)-y_i)*2.
+
+    def sgd(X_b, y, initial_theta, n_iters, t0=5,t1=50):
+
+        def learning_rate(t):
+            return t0/(t+t1)
+
+        theta=initial_theta
+        m=len(X_b)
+
+        for cur_iter in range(n_iters):
+            indexes=np.random.permutation(m)
+            X_b_new=X_b[indexes]
+            y_new=y[indexes]
+            for i in range(m):
+                gradient = dJ_sgd(theta, X_b_new[i], y_new[i])
+                theta = theta - learning_rate(cur_iter*m+i) * gradient
+
+        return theta
+
+    X_b = np.hstack([np.ones((len(X_train), 1)), X_train])
+    initial_theta = np.zeros(X_b.shape[1])  # theta向量的行数=X_b向量的列数
+    self._theta=sgd(X_b,y_train,initial_theta,n_iters,t0,t1)
+
+    self.interception_=self._theta[0]
+    self.coef_=self._theta[1:]
+
+    return  self
+```
+
+---
+
+#### 9 关于梯度的调试
+
+​		![1565264383205](LinearRegression.assets/1565264383205.png)
+
+​		![1565264556468](LinearRegression.assets/1565264556468.png)
 
 
 

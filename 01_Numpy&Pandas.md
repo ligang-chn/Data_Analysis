@@ -584,7 +584,7 @@ print(b)        # array([11, 22, 33,  3])
 
 ​		`random.normalvariate(mu,sigma)`：正态分布，mu-平均值，sigma-标准差；
 
-​		
+​		 
 
 
 
