@@ -10,7 +10,6 @@
 
   ​	![1565316859145](PCA.assets/1565316859145.png)
 
-
 ------
 
 #### 1 PCA主成分分析法
@@ -45,4 +44,33 @@
 
 #### 3 使用梯度上升法求解主成分
 
-​		
+```python
+def gradient_ascent(df,X,initial_w,eta,n_iters=1e4,epsilon=1e-8):
+    
+    w=direction(initial_w)
+    cur_iter=0
+    
+    while cur_iter < n_iters:
+        gradient=df(w,X)
+        last_w=w
+        w=w+eta*gradient
+        w=direction(w)#注意：每次求一个单位方向
+        if(abs(f(w,X)-f(last_w,X))<epsilon):
+            break
+        cur_iter+=1
+        
+    return w
+```
+
+
+
+
+
+-----
+
+#### 4 求数据的前n个主成分
+
+
+
+​		![1566567728248](PCA.assets/1566567728248.png)
+

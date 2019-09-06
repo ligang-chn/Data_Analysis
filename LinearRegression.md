@@ -228,9 +228,9 @@ class LinearRegression:
 
 		1. 评价线性回归算法：R Squared
   		2. 典型的参数学习，对比KNN：非参数学习
-        		3. 只能解决回归问题，对比KNN：既可以解决分类问题，又可以解决线性问题
+                		3. 只能解决回归问题，对比KNN：既可以解决分类问题，又可以解决线性问题
             		4. 对数据有假设：线性，对比KNN对数据没有假设
-                		5. 优点：对数据具有强解释性
+                      		5. 优点：对数据具有强解释性
 
 ​		
 
@@ -453,26 +453,120 @@ def fit_sgd(self,X_train,y_train,n_iters=5,t0=5,t1=50):
 
 ​		![1565264556468](LinearRegression.assets/1565264556468.png)
 
+------
+
+#### 10 多项式回归
+
+​		![1566651459989](LinearRegression.assets/1566651459989.png)
+
+​		将$X^2$和$X$分别看作两个特征，那么这个多项式回归依然可以看成线性回归。只不过对于x来说，是一个2次方程。
+
+​		解决方案：添加一些新的特征。
+
+​		**关于PolyFeatures**:
+
+​		![1566653180689](LinearRegression.assets/1566653180689.png)
+
+​		倒数第二列是原来数据中两列的乘积。
+
+​		![1566653357835](LinearRegression.assets/1566653357835.png)
+
+----
+
+#### 11 过拟合和欠拟合
+
+​		![1566655682783](LinearRegression.assets/1566655682783.png)
+
+​		![1566655703871](LinearRegression.assets/1566655703871.png)
 
 
 
+----
 
+#### 12 模型的泛化能力
 
+​		![1566655755602](LinearRegression.assets/1566655755602.png)
 
+​		我们由已知的训练数据得到的曲线，在面对新的数据的能力非常弱，即泛化能力差。
 
+​		![1566656096033](LinearRegression.assets/1566656096033.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+​		![1566656565053](LinearRegression.assets/1566656565053.png)
 
 ​		
+
+​		![1566656416736](LinearRegression.assets/1566656416736.png)
+
+​		![1566656428132](LinearRegression.assets/1566656428132.png)
+
+
+
+----
+
+#### 12 学习曲线
+
+​		随着训练样本的逐渐增多，算法训练出的模型的表现能力的变化。
+
+
+
+---
+
+#### 13 验证数据集与交叉验证
+
+​		![1566705066375](LinearRegression.assets/1566705066375.png)
+
+​		测试数据集不参与模型的创建。
+
+​		仍然存在一个问题：**随机**？
+
+​		由于我们的验证数据集都是随机的从数据集中切出来的，那么训练出来的模型可能对于这份验证数据集过拟合，但是我们只有这一份数据集，一旦这个数据集中相应的有比较极端的数据，就可能导致这个模型不准确。于是就有了**交叉验证**。
+
+​		![1566705423343](LinearRegression.assets/1566705423343.png)
+
+​		![1566710535089](LinearRegression.assets/1566710535089.png)
+
+​		![1566710624278](LinearRegression.assets/1566710624278.png)
+
+​		
+
+----
+
+#### 14 偏差方差权衡
+
+​		![1566716041157](LinearRegression.assets/1566716041157.png)
+
+​		模型误差=偏差+方差+不可避免的误差。
+
+​		![1566716226905](LinearRegression.assets/1566716226905.png)
+
+​		![1566716392186](LinearRegression.assets/1566716392186.png)
+
+​		![1566716433659](LinearRegression.assets/1566716433659.png)
+
+​		![1566716660074](LinearRegression.assets/1566716660074.png)
+
+​		![1566716963432](LinearRegression.assets/1566716963432.png)
+
+​		![1566717064555](LinearRegression.assets/1566717064555.png)
+
+
+
+---
+
+#### 15 模型正则化
+
+​		**限制参数的大小**。
+
+​		![1566717362982](LinearRegression.assets/1566717362982.png)
+
+​		![1566717790712](LinearRegression.assets/1566717790712.png)
+
+​		![1566718374676](LinearRegression.assets/1566718374676.png)
+
+​		![1566719701855](LinearRegression.assets/1566719701855.png)
+
+
+
+​		![1566720379279](LinearRegression.assets/1566720379279.png)
+
+​		![1566720547433](LinearRegression.assets/1566720547433.png)

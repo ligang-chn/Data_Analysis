@@ -382,19 +382,31 @@ Edit mode
 
 ##### 5.1  %run
 
+​		加载自己写的脚本文件。
+
 ```python
 %run test/test.py
 ```
 
 ​		
 
-##### 5.2   %timeit
+​		让一个文件夹称为一个模块的方式：添加`__init__.py`文件。
 
-​		%%timeit
 
-​		%time
+
+##### 5.2   测试代码性能
+
+​		%timeit——测试单行代码；
+
+​		%%timeit——测试一段代码；
+
+​		%time——只运行一次loop
 
 ​		%%time
+
+##### 5.3 其他魔法命令
+
+​		通过%lsmagic查看。
 
 
 

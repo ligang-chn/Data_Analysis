@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdef72cf-d7ac-416f-81d6-e0eeea949f96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../01_Numpy&amp;Pandas.md" beforeDir="false" afterPath="$PROJECT_DIR$/../01_Numpy&amp;Pandas.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../04_Numpy.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../05_pandas.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../06_数据加载、存储与文件格式.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LinearRegression.md" beforeDir="false" afterPath="$PROJECT_DIR$/../LinearRegression.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearRegression.py" beforeDir="false" afterPath="$PROJECT_DIR$/LinearRegression.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../0_Git.md" beforeDir="false" afterPath="$PROJECT_DIR$/../0_Git.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/LinearRegression.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="726">
-              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+              <caret line="94" selection-start-line="94" selection-end-line="94" />
             </state>
           </provider>
         </entry>
@@ -125,23 +119,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="ML" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="E:\GitHub\Data_Analysis\ML" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="ML" type="b2602c69:ProjectViewProjectNode" />
               <item name="ML" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="ML" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="E:\GitHub\Data_Analysis\ML" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
           </expand>
           <select />
@@ -213,9 +207,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="834" y="39" width="1080" height="1040" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24952015" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24952015" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -287,7 +280,7 @@
     <entry file="file://$PROJECT_DIR$/LinearRegression.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
-          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
         </state>
       </provider>
     </entry>
